@@ -1,0 +1,11 @@
+// Component config: Layout-a
+$layout-a: (
+  ratio: 1 / 4,
+  breakpoint-width: 40em,
+  item: (
+    background-color: $brand-system,
+    lead: (
+      background-color: $brand-highlight
+    )
+  )
+);

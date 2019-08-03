@@ -1,0 +1,18 @@
+// Component definition: Layout-a
+.layout-a {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+
+  &__item {
+    @include define-layout-items-ratio-w-breakpoint(
+      map-deep-get($layout-a, ratio),
+      map-deep-get($layout-a, breakpoint-width)
+    );
+    background-color: map-deep-get($layout-a, item, background-color);
+
+    &--lead {
+      background-color: map-deep-get($layout-a, item, lead, background-color);
+    }
+  }
+}

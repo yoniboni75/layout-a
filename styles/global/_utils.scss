@@ -1,0 +1,43 @@
+// UTILS: global functions and mixins 
+
+// Function: Map Deep Get
+// - read multi level map hierarchies
+// - loop through each level maps keys
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+// Function: Calc Flex Basis Breakpoint
+// - retruns:
+// --  a calc of:
+// ---  a calc for the delta between the breakpoint and 100%
+// ---  multiply it by 999
+// - purpose: giving flex-basis bounderies for min-max beheviour for grow and shrink changes.
+// - example use: 'layout-a-item' mixin.
+@function calc-basis-breakpoint($breakpoint) {
+  @return calc(calc(#{$breakpoint} - 100%) * 999);
+}
+
+// Mixin: Define Layout Item Ratio with Breakpoint
+//  defines: a responsive flex-item with min-max beheviour and no media query
+//  designed 2 items with a non even ratio
+//  - start as stacked items
+//  - om min breakpoint width , displayed as flex grid items with defined ratio
+//  @arguments:
+//  - $ratio : the ratio between items
+//  - $breapoint-width: the min width for ratio to appear
+@mixin define-layout-items-ratio-w-breakpoint($ratio, $breakpoint-width) {
+  flex-basis: calc-basis-breakpoint($breakpoint-width);
+  flex-grow: 1;
+  min-width: percentage($ratio);
+  max-width: 100%;
+
+  // sass-lint:disable no-attribute-selectors
+  &[data-item-lead] {
+    min-width: percentage(1 -$ratio);
+  }
+  // sass-lint:enable no-attribute-selectors
+}

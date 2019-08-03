@@ -1,0 +1,14 @@
+.layout-a {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh; }
+  .layout-a__item {
+    flex-basis: calc(calc(40em - 100%) * 999);
+    flex-grow: 1;
+    min-width: 25%;
+    max-width: 100%;
+    background-color: #248000; }
+    .layout-a__item[data-item-lead] {
+      min-width: 75%; }
+    .layout-a__item--lead {
+      background-color: #f40000; }
