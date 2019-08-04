@@ -1,5 +1,6 @@
 # Layout A 
-job interview assignment by Yonatan Lev Ari
+job interview assignment by Yonatan Lev Ari  
+[Demo](https://3dyonic.github.io/layout-a/)
 
 ## Specification
 1. Ratio between lead and default items is 3:1
